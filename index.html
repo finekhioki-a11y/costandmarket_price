@@ -46,7 +46,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: #ffffff; /* 画像周囲の背景色：白 */
+      background-color: #ffffff; /* 画像周囲の背景色 */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -270,9 +270,7 @@
 </head>
 <body>
 
-  <!-- ==========================================
-       1. スプラッシュ画面（黒文字が出ないようにaltを空欄に設定）
-       ========================================== -->
+  <!-- 1. スプラッシュ画面 -->
   <div id="splash-screen">
     <img src="splash_fine.jpg" alt="" class="splash-img">
   </div>
@@ -354,21 +352,42 @@
        データ管理用オブジェクト
        ========================================== */
     const menuData = {
+      // 2. おしながきカテゴリ
       categories: [
         {
           id: "udon_ramen",
           name: "うどん／ラーメン",
           items: [
             { id: "kyofu_ramen", name: "京風ラーメン", image: "kyofu_ramen.jpg" },
-            { id: "tanmen", name: "タンメン", image: "" }
+            { id: "tanmen", name: "たんめん", image: "tanmen.jpg" } // 画像を反映
           ]
         },
-        { id: "meshi_bread", name: "めし／パン類", items: [] },
-        { id: "pizza_pasta", name: "ピザ／パスタ", items: [] },
+        {
+          id: "meshi_bread",
+          name: "めし／パン類",
+          items: [
+            { id: "ch_sand", name: "クラブハウスサンド", image: "ch_sand.jpg" } // 新規追加
+          ]
+        },
+        {
+          id: "pizza_pasta",
+          name: "ピザ／パスタ",
+          items: [
+            { id: "napo", name: "ナポリタン", image: "napo.jpg" } // 新規追加
+          ]
+        },
         { id: "sets", name: "セット", items: [] },
-        { id: "sweets", name: "スイーツ", items: [] },
+        {
+          id: "sweets",
+          name: "スイーツ",
+          items: [
+            { id: "sifon_cake", name: "シフォンケーキ", image: "sifon_cake.jpg" } // 新規追加
+          ]
+        },
         { id: "blank", name: "（空欄）", items: [], isBlank: true }
       ],
+      
+      // 4. 各種商品の原価データ（新規追加メニューを京風ラーメンを参考に作成）
       ingredients: {
         kyofu_ramen: [
           { name: "麺", amount: "10g", price: 28 },
@@ -378,10 +397,33 @@
           { name: "だし", amount: "-", price: 5 }
         ],
         tanmen: [
-          { name: "麺", amount: "10g", price: 28 },
-          { name: "キャベツ", amount: "50g", price: 15 },
-          { name: "豚肉", amount: "20g", price: 40 },
-          { name: "だし", amount: "-", price: 10 }
+          { name: "中華麺", amount: "150g", price: 30 },
+          { name: "キャベツ", amount: "50g", price: 12 },
+          { name: "もやし", amount: "50g", price: 5 },
+          { name: "豚肉", amount: "30g", price: 35 },
+          { name: "スープ（塩）", amount: "-", price: 20 }
+        ],
+        napo: [
+          { name: "スパゲティ", amount: "100g", price: 20 },
+          { name: "ベーコン", amount: "20g", price: 25 },
+          { name: "玉ねぎ", amount: "30g", price: 8 },
+          { name: "ピーマン", amount: "1/2個", price: 10 },
+          { name: "ケチャップ・調味料", amount: "-", price: 15 }
+        ],
+        ch_sand: [
+          { name: "食パン（8枚切）", amount: "3枚", price: 24 },
+          { name: "鶏むね肉", amount: "40g", price: 32 },
+          { name: "ベーコン", amount: "1枚", price: 18 },
+          { name: "トマト", amount: "1/4個", price: 15 },
+          { name: "レタス", amount: "1枚", price: 10 },
+          { name: "マヨネーズ・ソース", amount: "-", price: 8 }
+        ],
+        sifon_cake: [
+          { name: "薄力粉", amount: "20g", price: 5 },
+          { name: "卵", amount: "1個", price: 22 },
+          { name: "砂糖", amount: "15g", price: 4 },
+          { name: "サラダ油", amount: "10ml", price: 3 },
+          { name: "生クリーム", amount: "30g", price: 25 }
         ]
       }
     };
@@ -389,15 +431,14 @@
     let currentCategoryId = null;
 
     /* ==========================================
-       アプリケーション初期化（エラー耐性強化版）
+       アプリケーション初期化
        ========================================== */
     window.addEventListener('DOMContentLoaded', () => {
-      // 1. スプラッシュ表示切り替え（何よりも最優先で実行）
+      // 1. スプラッシュ表示切り替え（最優先で実行）
       try {
         handleSplashScreen();
       } catch (err) {
         console.error("スプラッシュ画面エラー:", err);
-        // 万が一エラーになっても強制的に画面を切り替える
         forceShowMenu();
       }
 
@@ -487,169 +528,3 @@
           btn.onclick = () => showDetailPage(item);
           container.appendChild(btn);
         });
-      }
-
-      navigateTo('category');
-    }
-
-    // 詳細画面
-    function showDetailPage(item) {
-      const titleEl = document.getElementById('detail-title');
-      if (titleEl) titleEl.textContent = item.name;
-      
-      const imgElement = document.getElementById('detail-img');
-      if (imgElement) {
-        if (item.image) {
-          imgElement.src = item.image;
-          imgElement.classList.remove('hidden');
-        } else {
-          imgElement.src = "";
-          imgElement.classList.add('hidden');
-        }
-      }
-
-      const tbody = document.getElementById('detail-table-body');
-      if (!tbody) return;
-      tbody.innerHTML = '';
-
-      const list = menuData.ingredients[item.id] || [];
-      let totalCost = 0;
-
-      list.forEach(ing => {
-        totalCost += ing.price;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td>${ing.name}</td>
-          <td>${ing.amount}</td>
-          <td class="text-right">${ing.price}</td>
-        `;
-        tbody.appendChild(tr);
-      });
-
-      const totalTr = document.createElement('tr');
-      totalTr.className = 'total-row';
-      totalTr.innerHTML = `
-        <td>合計</td>
-        <td></td>
-        <td class="text-right">${totalCost}</td>
-      `;
-      tbody.appendChild(totalTr);
-
-      const backBtn = document.getElementById('detail-back-btn');
-      if (backBtn) {
-        backBtn.onclick = () => showCategoryPage(currentCategoryId);
-      }
-
-      navigateTo('detail');
-    }
-
-    // 画面切り替え
-    function navigateTo(screenName) {
-      const menu = document.getElementById('menu-screen');
-      const category = document.getElementById('category-screen');
-      const detail = document.getElementById('detail-screen');
-
-      if (menu) menu.classList.add('hidden');
-      if (category) category.classList.add('hidden');
-      if (detail) detail.classList.add('hidden');
-
-      if (screenName === 'menu' && menu) {
-        menu.classList.remove('hidden');
-      } else if (screenName === 'category' && category) {
-        category.classList.remove('hidden');
-      } else if (screenName === 'detail' && detail) {
-        detail.classList.remove('hidden');
-      }
-    }
-
-    // PWAインストールプロンプト制御
-    function initInstallPrompt() {
-      try {
-        let deferredPrompt;
-        const promptEl = document.getElementById('pwa-install-prompt');
-        const installBtn = document.getElementById('pwa-install-btn');
-        const closeBtn = document.getElementById('pwa-close-btn');
-        const stdButtons = document.getElementById('pwa-standard-buttons');
-        const iosInstruction = document.getElementById('pwa-ios-instruction');
-        const closeIosBtn = document.getElementById('pwa-close-ios-btn');
-
-        if (!promptEl) return;
-
-        // PWAStandalone状態のチェックを安全に実行
-        let isStandalone = false;
-        try {
-          isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
-                        (window.navigator && window.navigator.standalone);
-        } catch (e) {
-          isStandalone = false;
-        }
-        if (isStandalone) return;
-
-        // Chrome/Android対応
-        window.addEventListener('beforeinstallprompt', (e) => {
-          e.preventDefault();
-          deferredPrompt = e;
-          setTimeout(() => {
-            if (promptEl) promptEl.classList.remove('hidden');
-          }, 3000);
-        });
-
-        if (installBtn) {
-          installBtn.addEventListener('click', () => {
-            if (promptEl) promptEl.classList.add('hidden');
-            if (deferredPrompt) {
-              deferredPrompt.prompt();
-              deferredPrompt.userChoice.then((choiceResult) => {
-                deferredPrompt = null;
-              }).catch(err => console.error("PWAダイアログ表示エラー:", err));
-            }
-          });
-        }
-
-        if (closeBtn) {
-          closeBtn.addEventListener('click', () => {
-            if (promptEl) promptEl.classList.add('hidden');
-          });
-        }
-
-        // iOS(Safari)対応
-        let isIos = false;
-        let isSafari = false;
-        try {
-          const ua = navigator.userAgent.toLowerCase();
-          isIos = /iphone|ipad|ipod/.test(ua);
-          isSafari = /safari/.test(ua) && !/chrome|crios/.test(ua);
-        } catch (e) {
-          isIos = false;
-          isSafari = false;
-        }
-
-        if (isIos && isSafari) {
-          setTimeout(() => {
-            if (stdButtons) stdButtons.classList.add('hidden');
-            if (iosInstruction) iosInstruction.classList.remove('hidden');
-            if (promptEl) promptEl.classList.remove('hidden');
-          }, 3000);
-
-          if (closeIosBtn) {
-            closeIosBtn.addEventListener('click', () => {
-              if (promptEl) promptEl.classList.add('hidden');
-            });
-          }
-        }
-      } catch (globalErr) {
-        console.error("インストールプロンプト制御全体の実行エラー（処理をバイパスします）:", globalErr);
-      }
-    }
-
-    // Service Worker 登録
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('Service Worker 登録成功:', reg))
-          .catch(err => console.error('Service Worker 登録失敗:', err));
-      });
-    }
-  </script>
-</body>
-</html>
