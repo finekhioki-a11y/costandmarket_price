@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原価・相場価格アプリ</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#4a5568">
+  <style>
+    /* 基本スタイル */
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7fafc;
+      color: #2d3748;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hidden {
+      display: none !important;
+    }
+
+    /* ① トップページ（じんわり消える） */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 1.5s ease; /* じんわり消えるアニメーション */
+    }
+    #splash-screen.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ボタン共通（全て同一色） */
+    .btn {
+      background-color: #4a5568; /* 同一色（シックなグレー） */
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn:active {
+      background-color: #2d3748;
+    }
+
+    /* ② おしながき（6項目ボタン） */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    /* ③ 2列並びのボタン */
+    .sub-menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    /* Backボタン */
+    .btn-back {
+      background-color: #a0aec0;
+      margin-bottom: 20px;
+      width: auto;
+      padding: 8px 16px;
+    }
+
+    /* ④ 詳細画面 */
+    .detail-container {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .detail-image {
+      width: 40%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .detail-content {
+      width: 60%;
+    }
+    .detail-title {
+      font-size: 20px;
+      margin-top: 0;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #4a5568;
+      padding-bottom: 5px;
+    }
+
+    /* 横スクロール対応のテーブル（成分表示） */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #cbd5e0;
+      padding: 8px 12px;
+      white-space: nowrap;
+    }
+    th {
+      background-color: #edf2f7;
+    }
+    .total-cell {
+      font-weight: bold;
+      background-color: #feebc8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ① トップページ（起動スプラッシュ） -->
+    <div id="splash-screen">
+      <h1>原価・相場価格</h1>
+      <p>読み込み中...</p>
+    </div>
+
+    <!-- ② おしながき画面 -->
+    <div id="page-main-menu">
+      <h2>おしながき</h2>
+      <div class="menu-grid">
+        <button class="btn" onclick="showPage('page-udon-ramen')">うどん／ラーメン</button>
+        <button class="btn">めし／パン類</button>
+        <button class="btn">ピザ／パスタ</button>
+        <button class="btn">セット</button>
+        <button class="btn">スイーツ</button>
+        <button class="btn"><!-- 空欄 --></button>
+      </div>
+    </div>
+
+    <!-- ③ うどん／ラーメン 画面 -->
+    <div id="page-udon-ramen" class="hidden">
+      <button class="btn btn-back" onclick="showPage('page-main-menu')">← おしながきへ戻る</button>
+      <h2>うどん／ラーメン</h2>
+      <div class="sub-menu-grid">
+        <button class="btn" onclick="showPage('page-kyofu-ramen')">京風ラーメン</button>
+        <button class="btn">タンメン</button>
+      </div>
+    </div>
+
+    <!-- ④ 京風ラーメン 詳細画面 -->
+    <div id="page-kyofu-ramen" class="hidden">
+      <button class="btn btn-back" onclick="showPage('page-udon-ramen')">← うどん／ラーメンへ戻る</button>
+      
+      <div class="detail-container">
+        <!-- 左側：画像 -->
+        <img src="kyofu_ramen.jpg" alt="京風ラーメン" class="detail-image">
+        
+        <!-- 右側：詳細データ -->
+        <div class="detail-content">
+          <h3 class="detail-title">京風ラーメン</h3>
+          
+          <div class="table-wrapper">
+            <table>
+              <!-- 1行目：項目 -->
+              <tr>
+                <th>材料</th>
+                <td>麺</td>
+                <td>かき揚げ</td>
+                <td>乾のり</td>
+                <td>ねぎ</td>
+                <td>だし</td>
+                <th>合計</th>
+              </tr>
+              <!-- 2行目：分量 -->
+              <tr>
+                <th>分量</th>
+                <td>10g</td>
+                <td>1枚</td>
+                <td>2枚</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <!-- 3行目：原価 -->
+              <tr>
+                <th>原価</th>
+                <td>28</td>
+                <td>35</td>
+                <td>4</td>
+                <td>25</td>
+                <td>5</td>
+                <td class="total-cell">97</td> <!-- 最後のトータル原価 -->
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ① トップページを「じんわり消す」処理（2秒後にフェードアウト）
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        splash.classList.add('fade-out');
+        setTimeout(() => splash.classList.add('hidden'), 1500); // アニメーション完了後に完全に消す
+      }, 1000);
+    });
+
+    // 画面切り替え用の関数
+    function showPage(pageId) {
+      // 一旦すべてのページを隠す
+      document.getElementById('page-main-menu').classList.add('hidden');
+      document.getElementById('page-udon-ramen').classList.add('hidden');
+      document.getElementById('page-kyofu-ramen').classList.add('hidden');
+
+      // 指定されたページだけ表示
+      document.getElementById(pageId).classList.remove('hidden');
+    }
+
+    // PWA用 Service Worker登録
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+  </script>
+</body>
+</html>
