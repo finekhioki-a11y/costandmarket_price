@@ -1,0 +1,16 @@
+{
+  "short_name": "原価管理",
+  "name": "原価・相場価格管理アプリ",
+  "icons": [
+    {
+      "src": "splash_fine.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#4a5568",
+  "orientation": "portrait"
+}
