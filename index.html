@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>原価・相場価格管理アプリ</title>
   <link rel="manifest" href="manifest.json">
+  <!-- iOS用のホーム画面追加アイコン設定 -->
+  <link rel="apple-touch-icon" href="icon_ff.jpg">
   <style>
     /* ==========================================
        共通・リセットスタイル
@@ -25,12 +27,12 @@
     }
     .container {
       width: 100%;
-      max-width: 600px; /* モバイルファーストの画面幅制限 */
+      max-width: 600px;
       padding: 16px;
       position: relative;
     }
 
-    /* 画面切り替え用の非表示クラス */
+    /* 共通非表示クラス */
     .hidden {
       display: none !important;
     }
@@ -44,26 +46,26 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: #ffffff; /* 画像の背景色に合わせて必要なら変更してください */
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       opacity: 1;
-      transition: opacity 1.5s ease; /* 1.5秒かけてフェードアウト */
+      transition: opacity 1.5s ease;
     }
     .splash-img {
       width: 100%;
       height: 100%;
       max-width: 100vw;
       max-height: 100vh;
-      object-fit: contain; /* 縦横比を崩さずに最大サイズで収める */
+      object-fit: contain;
       padding: 32px;
       box-sizing: border-box;
     }
 
     /* ==========================================
-       ヘッダー（戻るボタンとタイトル）
+       ヘッダー
        ========================================== */
     header {
       width: 100%;
@@ -96,7 +98,7 @@
        ========================================== */
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2列配置 */
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-top: 20px;
     }
@@ -119,7 +121,6 @@
     .menu-btn:active {
       transform: scale(0.98);
     }
-    /* 空欄用ボタンのスタイリング */
     .menu-btn.blank {
       background-color: #edf2f7;
       color: #a0aec0;
@@ -136,7 +137,7 @@
        ========================================== */
     .category-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2列配置 */
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
 
@@ -145,7 +146,7 @@
        ========================================== */
     .detail-layout {
       display: flex;
-      flex-direction: column; /* スマホ等では縦並び */
+      flex-direction: column;
       gap: 20px;
       background-color: white;
       padding: 16px;
@@ -153,7 +154,6 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
     @media (min-width: 480px) {
-      /* 画面幅が480px以上の場合は左右並び（左画像、右原価表） */
       .detail-layout {
         flex-direction: row;
       }
@@ -200,57 +200,113 @@
     .text-right {
       text-align: right;
     }
+
+    /* ==========================================
+       PWA 独自インストールポップアップ
+       ========================================== */
+    #pwa-install-prompt {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      background-color: white;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      padding: 20px;
+      z-index: 10000;
+      border: 1px solid #e2e8f0;
+    }
+    .prompt-content h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #2d3748;
+      font-weight: bold;
+    }
+    .prompt-content p {
+      font-size: 0.85rem;
+      color: #718096;
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .prompt-buttons {
+      display: flex;
+      gap: 12px;
+    }
+    .prompt-btn-primary {
+      flex: 1.5;
+      background-color: #4a5568;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .prompt-btn-secondary {
+      flex: 1;
+      background-color: #edf2f7;
+      color: #4a5568;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .ios-instruction-box {
+      background-color: #f7fafc;
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 4px solid #4a5568;
+    }
+    .ios-text {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #2d3748;
+    }
   </style>
 </head>
 <body>
 
-  <!-- ==========================================
-       1. スプラッシュ画面（起動時に表示）
-       ========================================== -->
+  <!-- 1. スプラッシュ画面 -->
   <div id="splash-screen">
     <img src="splash_fine.jpg" alt="スプラッシュ画像" class="splash-img">
   </div>
 
   <div class="container">
-    <!-- ==========================================
-         2. おしながき画面（メインメニュー）
-         ========================================== -->
+    <!-- 2. おしながき画面（メインメニュー） -->
     <div id="menu-screen" class="hidden">
       <header>
         <div class="page-title">おしながき</div>
       </header>
       <div class="menu-grid" id="main-menu-container">
-        <!-- JSでボタンが動的に配置されます -->
+        <!-- JSでボタンが配置されます -->
       </div>
     </div>
 
-    <!-- ==========================================
-         3. 階層カテゴリ画面
-         ========================================== -->
+    <!-- 3. 階層カテゴリ画面 -->
     <div id="category-screen" class="hidden">
       <header>
         <button class="back-btn" onclick="navigateTo('menu')">戻る</button>
         <div class="page-title" id="category-title">カテゴリ</div>
       </header>
       <div class="category-grid" id="category-items-container">
-        <!-- JSでカテゴリ内のアイテムボタンが2列で動的に配置されます -->
+        <!-- JSで2列で配置されます -->
       </div>
     </div>
 
-    <!-- ==========================================
-         4. 詳細画面
-         ========================================== -->
+    <!-- 4. 詳細画面 -->
     <div id="detail-screen" class="hidden">
       <header>
         <button class="back-btn" id="detail-back-btn">戻る</button>
         <div class="page-title" id="detail-title">商品詳細</div>
       </header>
       <div class="detail-layout">
-        <!-- 左側：料理画像 -->
         <div class="detail-image-container">
           <img id="detail-img" src="" alt="料理画像" class="detail-image">
         </div>
-        <!-- 右側：原価表テーブル -->
         <div class="detail-table-container">
           <table class="cost-table">
             <thead>
@@ -261,10 +317,36 @@
               </tr>
             </thead>
             <tbody id="detail-table-body">
-              <!-- JSで行データが動的に配置されます -->
+              <!-- JSで行データが配置されます -->
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       PWA 独自インストールポップアップUI
+       ========================================== -->
+  <div id="pwa-install-prompt" class="hidden">
+    <div class="prompt-content">
+      <h3>アプリとして追加する</h3>
+      <p>このアプリをホーム画面に追加すると、オフライン時でもいつでも簡単に原価を確認できます。</p>
+      
+      <!-- Android/PC向けのボタン構成 -->
+      <div class="prompt-buttons" id="pwa-standard-buttons">
+        <button id="pwa-close-btn" class="prompt-btn-secondary">今はしない</button>
+        <button id="pwa-install-btn" class="prompt-btn-primary">インストール</button>
+      </div>
+
+      <!-- iOS（Safari）向けの特別な案内文 -->
+      <div id="pwa-ios-instruction" class="hidden">
+        <div class="ios-instruction-box">
+          <p class="ios-text">
+            Safari下部にある<strong>「共有ボタン（四角から矢印が飛び出ているアイコン）」</strong>をタップし、メニュー内の<strong>「ホーム画面に追加」</strong>を選択してください。
+          </p>
+        </div>
+        <button id="pwa-close-ios-btn" class="prompt-btn-secondary" style="width:100%; margin-top:12px;">閉じる</button>
       </div>
     </div>
   </div>
@@ -274,7 +356,6 @@
        データ管理用オブジェクト
        ========================================== */
     const menuData = {
-      // 2. おしながきカテゴリ（全6項目）
       categories: [
         {
           id: "udon_ramen",
@@ -288,9 +369,8 @@
         { id: "pizza_pasta", name: "ピザ／パスタ", items: [] },
         { id: "sets", name: "セット", items: [] },
         { id: "sweets", name: "スイーツ", items: [] },
-        { id: "blank", name: "（空欄）", items: [], isBlank: true } // 6項目目の空欄要件
+        { id: "blank", name: "（空欄）", items: [], isBlank: true }
       ],
-      // 4. 詳細画面用の原材料データ（キーは各アイテムのid）
       ingredients: {
         kyofu_ramen: [
           { name: "麺", amount: "10g", price: 28 },
@@ -308,7 +388,6 @@
       }
     };
 
-    // どのカテゴリから詳細画面を開いたかを保持する変数
     let currentCategoryId = null;
 
     /* ==========================================
@@ -317,19 +396,17 @@
     window.addEventListener('DOMContentLoaded', () => {
       initMainMenu();
       handleSplashScreen();
+      initInstallPrompt();
     });
 
-    // 1. スプラッシュ画面制御（1秒待機後、1.5秒かけてフェードアウト）
+    // 1. スプラッシュ画面（1秒待機後、1.5秒かけてフェードアウト）
     function handleSplashScreen() {
       const splash = document.getElementById('splash-screen');
       const menu = document.getElementById('menu-screen');
       
-      // 1秒待機（1000ms）
       setTimeout(() => {
-        // opacityを0に変更（CSSのtransitionにより、1.5秒かけてゆっくり消えます）
         splash.style.opacity = '0';
         
-        // 1.5秒後に完全に非表示（display: none）にして、おしながき画面を表示
         setTimeout(() => {
           splash.classList.add('hidden');
           menu.classList.remove('hidden');
@@ -337,7 +414,7 @@
       }, 1000);
     }
 
-    // 2. おしながき（メインメニュー）ボタンのレンダリング
+    // 2. おしながき（メインメニュー）生成
     function initMainMenu() {
       const container = document.getElementById('main-menu-container');
       container.innerHTML = '';
@@ -356,7 +433,7 @@
       });
     }
 
-    // 3. 階層カテゴリ画面のレンダリングと表示
+    // 3. カテゴリ画面
     function showCategoryPage(catId) {
       currentCategoryId = catId;
       const category = menuData.categories.find(c => c.id === catId);
@@ -371,7 +448,7 @@
       } else {
         category.items.forEach(item => {
           const btn = document.createElement('button');
-          btn.className = 'menu-btn'; // 同一色・同一デザイン
+          btn.className = 'menu-btn';
           btn.textContent = item.name;
           btn.onclick = () => showDetailPage(item);
           container.appendChild(btn);
@@ -381,11 +458,10 @@
       navigateTo('category');
     }
 
-    // 4. 詳細画面のレンダリングと表示
+    // 4. 詳細画面
     function showDetailPage(item) {
       document.getElementById('detail-title').textContent = item.name;
       
-      // 画像の設定（ファイルが存在する場合は表示、なければ非表示）
       const imgElement = document.getElementById('detail-img');
       if (item.image) {
         imgElement.src = item.image;
@@ -395,7 +471,6 @@
         imgElement.classList.add('hidden');
       }
 
-      // テーブル（原価表）の作成
       const tbody = document.getElementById('detail-table-body');
       tbody.innerHTML = '';
 
@@ -413,7 +488,6 @@
         tbody.appendChild(tr);
       });
 
-      // 最下部にトータル原価（合計行）を表示
       const totalTr = document.createElement('tr');
       totalTr.className = 'total-row';
       totalTr.innerHTML = `
@@ -423,14 +497,13 @@
       `;
       tbody.appendChild(totalTr);
 
-      // 詳細画面からの「戻る」ボタンの戻り先設定
       const backBtn = document.getElementById('detail-back-btn');
       backBtn.onclick = () => showCategoryPage(currentCategoryId);
 
       navigateTo('detail');
     }
 
-    // 画面の表示/非表示（SPA方式切り替え）
+    // 画面遷移用
     function navigateTo(screenName) {
       const menu = document.getElementById('menu-screen');
       const category = document.getElementById('category-screen');
@@ -450,15 +523,33 @@
     }
 
     /* ==========================================
-       Service Worker 登録処理
+       PWA インストールポップアップの表示・制御ロジック
        ========================================== */
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('Service Worker 登録成功:', reg))
-          .catch(err => console.error('Service Worker 登録失敗:', err));
+    function initInstallPrompt() {
+      let deferredPrompt;
+      const promptEl = document.getElementById('pwa-install-prompt');
+      const installBtn = document.getElementById('pwa-install-btn');
+      const closeBtn = document.getElementById('pwa-close-btn');
+      const stdButtons = document.getElementById('pwa-standard-buttons');
+      const iosInstruction = document.getElementById('pwa-ios-instruction');
+      const closeIosBtn = document.getElementById('pwa-close-ios-btn');
+
+      // すでにホーム画面等から独立アプリとして起動している（standalone）場合は終了
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+      if (isStandalone) return;
+
+      // --- 1. Android、PC（Chrome等のブラウザ）の挙動 ---
+      window.addEventListener('beforeinstallprompt', (e) => {
+        // 標準のポップアップ（ミニバー）をキャンセル
+        e.preventDefault();
+        deferredPrompt = e;
+
+        // アプリ起動3秒後に、カスタムポップアップをスッと表示
+        setTimeout(() => {
+          promptEl.classList.remove('hidden');
+        }, 3000);
       });
-    }
-  </script>
-</body>
-</html>
+
+      // インストールボタンが押されたとき
+      installBtn.addEventListener('click', () => {
+        promptEl.classList.add
