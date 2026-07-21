@@ -1,9 +1,6 @@
 {
   "short_name": "FCM",
-  "name": " ",  
-  /* ↑ ここを半角スペース「" "」にすることで、起動画面に表示される文字を完全に消します。
-     ホーム画面のアイコン下には、上の「FCM」が表示されます。 */
-  
+  "name": " ",
   "icons": [
     {
       "src": "icon_ff.jpg",
@@ -19,10 +16,10 @@
     }
   ],
   "start_url": "./index.html",
-  "background_color": "#000000", 
-  /* ↑ 起動画面の背景色を「真っ黒」に設定します */
+  "background_color": "#000000",
+  "display": "fullscreen",  
+  /* ↑ ここを「fullscreen」にすることで、システムバーを隠して画面全体に表示させます */
   
-  "display": "standalone",
   "theme_color": "#4a5568",
   "orientation": "portrait"
 }
