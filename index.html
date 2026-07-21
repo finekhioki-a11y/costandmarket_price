@@ -528,3 +528,169 @@
           btn.onclick = () => showDetailPage(item);
           container.appendChild(btn);
         });
+      }
+
+      navigateTo('category');
+    }
+
+    // 詳細画面
+    function showDetailPage(item) {
+      const titleEl = document.getElementById('detail-title');
+      if (titleEl) titleEl.textContent = item.name;
+      
+      const imgElement = document.getElementById('detail-img');
+      if (imgElement) {
+        if (item.image) {
+          imgElement.src = item.image;
+          imgElement.classList.remove('hidden');
+        } else {
+          imgElement.src = "";
+          imgElement.classList.add('hidden');
+        }
+      }
+
+      const tbody = document.getElementById('detail-table-body');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      const list = menuData.ingredients[item.id] || [];
+      let totalCost = 0;
+
+      list.forEach(ing => {
+        totalCost += ing.price;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${ing.name}</td>
+          <td>${ing.amount}</td>
+          <td class="text-right">${ing.price}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      const totalTr = document.createElement('tr');
+      totalTr.className = 'total-row';
+      totalTr.innerHTML = `
+        <td>合計</td>
+        <td></td>
+        <td class="text-right">${totalCost}</td>
+      `;
+      tbody.appendChild(totalTr);
+
+      const backBtn = document.getElementById('detail-back-btn');
+      if (backBtn) {
+        backBtn.onclick = () => showCategoryPage(currentCategoryId);
+      }
+
+      navigateTo('detail');
+    }
+
+    // 画面切り替え
+    function navigateTo(screenName) {
+      const menu = document.getElementById('menu-screen');
+      const category = document.getElementById('category-screen');
+      const detail = document.getElementById('detail-screen');
+
+      if (menu) menu.classList.add('hidden');
+      if (category) category.classList.add('hidden');
+      if (detail) detail.classList.add('hidden');
+
+      if (screenName === 'menu' && menu) {
+        menu.classList.remove('hidden');
+      } else if (screenName === 'category' && category) {
+        category.classList.remove('hidden');
+      } else if (screenName === 'detail' && detail) {
+        detail.classList.remove('hidden');
+      }
+    }
+
+    // PWAインストールプロンプト制御
+    function initInstallPrompt() {
+      try {
+        let deferredPrompt;
+        const promptEl = document.getElementById('pwa-install-prompt');
+        const installBtn = document.getElementById('pwa-install-btn');
+        const closeBtn = document.getElementById('pwa-close-btn');
+        const stdButtons = document.getElementById('pwa-standard-buttons');
+        const iosInstruction = document.getElementById('pwa-ios-instruction');
+        const closeIosBtn = document.getElementById('pwa-close-ios-btn');
+
+        if (!promptEl) return;
+
+        // PWAStandalone状態のチェックを安全に実行
+        let isStandalone = false;
+        try {
+          isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                        (window.navigator && window.navigator.standalone);
+        } catch (e) {
+          isStandalone = false;
+        }
+        if (isStandalone) return;
+
+        // Chrome/Android対応
+        window.addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          deferredPrompt = e;
+          setTimeout(() => {
+            if (promptEl) promptEl.classList.remove('hidden');
+          }, 3000);
+        });
+
+        if (installBtn) {
+          installBtn.addEventListener('click', () => {
+            if (promptEl) promptEl.classList.add('hidden');
+            if (deferredPrompt) {
+              deferredPrompt.prompt();
+              deferredPrompt.userChoice.then((choiceResult) => {
+                deferredPrompt = null;
+              }).catch(err => console.error("PWAダイアログ表示エラー:", err));
+            }
+          });
+        }
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            if (promptEl) promptEl.classList.add('hidden');
+          });
+        }
+
+        // iOS(Safari)対応
+        let isIos = false;
+        let isSafari = false;
+        try {
+          const ua = navigator.userAgent.toLowerCase();
+          isIos = /iphone|ipad|ipod/.test(ua);
+          isSafari = /safari/.test(ua) && !/chrome|crios/.test(ua);
+        } catch (e) {
+          isIos = false;
+          isSafari = false;
+        }
+
+        if (isIos && isSafari) {
+          setTimeout(() => {
+            if (stdButtons) stdButtons.classList.add('hidden');
+            if (iosInstruction) iosInstruction.classList.remove('hidden');
+            if (promptEl) promptEl.classList.remove('hidden');
+          }, 3000);
+
+          if (closeIosBtn) {
+            closeIosBtn.addEventListener('click', () => {
+              if (promptEl) promptEl.classList.add('hidden');
+            });
+          }
+        }
+      } catch (globalErr) {
+        console.error("インストールプロンプト制御全体の実行エラー:", globalErr);
+      }
+    }
+
+    // Service Worker 登録
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker 登録成功:', reg))
+          .catch(err => console.error('Service Worker 登録失敗:', err));
+      });
+    }
+  </script>
+</body>
+</html>
