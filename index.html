@@ -37,7 +37,7 @@
       flex-direction: column;
       z-index: 1000;
       opacity: 1;
-      transition: opacity 1.5s ease; /* じんわり消えるアニメーション */
+      transition: opacity 1.5s ease;
     }
     #splash-screen.fade-out {
       opacity: 0;
@@ -46,7 +46,7 @@
 
     /* ボタン共通（全て同一色） */
     .btn {
-      background-color: #4a5568; /* 同一色（シックなグレー） */
+      background-color: #4a5568;
       color: white;
       border: none;
       padding: 15px;
@@ -78,7 +78,7 @@
       margin-top: 20px;
     }
 
-    /* Backボタン */
+    /* 戻るボタン */
     .btn-back {
       background-color: #a0aec0;
       margin-bottom: 20px;
@@ -89,8 +89,9 @@
     /* ④ 詳細画面 */
     .detail-container {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       margin-top: 20px;
+      align-items: flex-start;
     }
     .detail-image {
       width: 40%;
@@ -108,10 +109,7 @@
       padding-bottom: 5px;
     }
 
-    /* 横スクロール対応のテーブル（成分表示） */
-    .table-wrapper {
-      overflow-x: auto;
-    }
+    /* 縦流しの表スタイル */
     table {
       border-collapse: collapse;
       width: 100%;
@@ -120,13 +118,14 @@
     }
     th, td {
       border: 1px solid #cbd5e0;
-      padding: 8px 12px;
-      white-space: nowrap;
+      padding: 8px 6px;
     }
     th {
       background-color: #edf2f7;
     }
-    .total-cell {
+    /* 合計行のスタイル */
+    .total-row th,
+    .total-row td {
       font-weight: bold;
       background-color: #feebc8;
     }
@@ -173,44 +172,51 @@
         <!-- 左側：画像 -->
         <img src="kyofu_ramen.jpg" alt="京風ラーメン" class="detail-image">
         
-        <!-- 右側：詳細データ -->
+        <!-- 右側：詳細データ（縦流し） -->
         <div class="detail-content">
           <h3 class="detail-title">京風ラーメン</h3>
           
-          <div class="table-wrapper">
-            <table>
-              <!-- 1行目：項目 -->
+          <table>
+            <thead>
               <tr>
                 <th>材料</th>
-                <td>麺</td>
-                <td>かき揚げ</td>
-                <td>乾のり</td>
-                <td>ねぎ</td>
-                <td>だし</td>
-                <th>合計</th>
-              </tr>
-              <!-- 2行目：分量 -->
-              <tr>
                 <th>分量</th>
-                <td>10g</td>
-                <td>1枚</td>
-                <td>2枚</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-              <!-- 3行目：原価 -->
-              <tr>
                 <th>原価</th>
-                <td>28</td>
-                <td>35</td>
-                <td>4</td>
-                <td>25</td>
-                <td>5</td>
-                <td class="total-cell">97</td> <!-- 最後のトータル原価 -->
               </tr>
-            </table>
-          </div>
+            </thead>
+            <tbody>
+              <tr>
+                <td>麺</td>
+                <td>10g</td>
+                <td>28</td>
+              </tr>
+              <tr>
+                <td>かき揚げ</td>
+                <td>1枚</td>
+                <td>35</td>
+              </tr>
+              <tr>
+                <td>乾のり</td>
+                <td>2枚</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>ねぎ</td>
+                <td>-</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>だし</td>
+                <td>-</td>
+                <td>5</td>
+              </tr>
+              <!-- 最後のトータル行 -->
+              <tr class="total-row">
+                <th colspan="2">合計</th>
+                <td>97</td>
+              </tr>
+            </tbody>
+          </table>
 
         </div>
       </div>
@@ -219,23 +225,21 @@
   </div>
 
   <script>
-    // ① トップページを「じんわり消す」処理（2秒後にフェードアウト）
+    // ① トップページを「じんわり消す」処理
     window.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         const splash = document.getElementById('splash-screen');
         splash.classList.add('fade-out');
-        setTimeout(() => splash.classList.add('hidden'), 1500); // アニメーション完了後に完全に消す
+        setTimeout(() => splash.classList.add('hidden'), 1500);
       }, 1000);
     });
 
     // 画面切り替え用の関数
     function showPage(pageId) {
-      // 一旦すべてのページを隠す
       document.getElementById('page-main-menu').classList.add('hidden');
       document.getElementById('page-udon-ramen').classList.add('hidden');
       document.getElementById('page-kyofu-ramen').classList.add('hidden');
 
-      // 指定されたページだけ表示
       document.getElementById(pageId).classList.remove('hidden');
     }
 
