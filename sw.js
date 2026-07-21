@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cost-and-market-v1';
+const CACHE_NAME = 'cost-and-market-v2';
 const ASSETS = [
   './',
   './index.html',
