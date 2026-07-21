@@ -1,6 +1,9 @@
 {
   "short_name": "FCM",
-  "name": "FCM 原価・相場価格管理",
+  "name": " ",  
+  /* ↑ ここを半角スペース「" "」にすることで、起動画面に表示される文字を完全に消します。
+     ホーム画面のアイコン下には、上の「FCM」が表示されます。 */
+  
   "icons": [
     {
       "src": "icon_ff.jpg",
@@ -16,7 +19,9 @@
     }
   ],
   "start_url": "./index.html",
-  "background_color": "#ffffff",
+  "background_color": "#000000", 
+  /* ↑ 起動画面の背景色を「真っ黒」に設定します */
+  
   "display": "standalone",
   "theme_color": "#4a5568",
   "orientation": "portrait"
