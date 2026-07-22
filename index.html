@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FCM 原価・相場価格管理</title>
   <link rel="manifest" href="manifest.json">
-  <!-- iOS用のホーム画面追加アイコン設定 -->
   <link rel="apple-touch-icon" href="icon_ff.jpg">
   <style>
     /* ==========================================
@@ -32,7 +31,6 @@
       position: relative;
     }
 
-    /* 共通非表示クラス */
     .hidden {
       display: none !important;
     }
@@ -46,13 +44,13 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background-color: #ffffff; /* 画像周囲の背景色 */
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       opacity: 1;
-      transition: opacity 1.5s ease; /* 1.5秒かけてフェードアウト */
+      transition: opacity 1.5s ease;
     }
     .splash-img {
       width: 100%;
@@ -103,7 +101,7 @@
       margin-top: 20px;
     }
     .menu-btn {
-      background-color: #4a5568; /* 同一色：#4a5568 */
+      background-color: #4a5568;
       color: white;
       border: none;
       padding: 24px 16px;
@@ -339,7 +337,7 @@
       <div id="pwa-ios-instruction" class="hidden">
         <div class="ios-instruction-box">
           <p class="ios-text">
-            Safari下部にある<strong>「共有ボタン（四角から矢印が飛び出ているアイコン）」</strong>をタップし、メニュー内の<strong>「ホーム画面に追加」</strong>を選択してください。
+            Safari下部にある<strong>「共有ボタン」</strong>をタップし、メニュー内の<strong>「ホーム画面に追加」</strong>を選択してください。
           </p>
         </div>
         <button id="pwa-close-ios-btn" class="prompt-btn-secondary" style="width:100%; margin-top:12px;">閉じる</button>
@@ -348,93 +346,15 @@
   </div>
 
   <script>
-    /* ==========================================
-       データ管理用オブジェクト
-       ========================================== */
-    const menuData = {
-      // 2. おしながきカテゴリ
-      categories: [
-        {
-          id: "udon_ramen",
-          name: "うどん／ラーメン",
-          items: [
-            { id: "kyofu_ramen", name: "京風ラーメン", image: "kyofu_ramen.jpg" },
-            { id: "tanmen", name: "たんめん", image: "tanmen.jpg" } // 画像を反映
-          ]
-        },
-        {
-          id: "meshi_bread",
-          name: "めし／パン類",
-          items: [
-            { id: "ch_sand", name: "クラブハウスサンド", image: "ch_sand.jpg" } // 新規追加
-          ]
-        },
-        {
-          id: "pizza_pasta",
-          name: "ピザ／パスタ",
-          items: [
-            { id: "napo", name: "ナポリタン", image: "napo.jpg" } // 新規追加
-          ]
-        },
-        { id: "sets", name: "セット", items: [] },
-        {
-          id: "sweets",
-          name: "スイーツ",
-          items: [
-            { id: "sifon_cake", name: "シフォンケーキ", image: "sifon_cake.jpg" } // 新規追加
-          ]
-        },
-        { id: "blank", name: "（空欄）", items: [], isBlank: true }
-      ],
-      
-      // 4. 各種商品の原価データ（新規追加メニューを京風ラーメンを参考に作成）
-      ingredients: {
-        kyofu_ramen: [
-          { name: "麺", amount: "10g", price: 28 },
-          { name: "かき揚げ", amount: "1枚", price: 35 },
-          { name: "乾のり", amount: "2枚", price: 4 },
-          { name: "ねぎ", amount: "-", price: 25 },
-          { name: "だし", amount: "-", price: 5 }
-        ],
-        tanmen: [
-          { name: "中華麺", amount: "150g", price: 30 },
-          { name: "キャベツ", amount: "50g", price: 12 },
-          { name: "もやし", amount: "50g", price: 5 },
-          { name: "豚肉", amount: "30g", price: 35 },
-          { name: "スープ（塩）", amount: "-", price: 20 }
-        ],
-        napo: [
-          { name: "スパゲティ", amount: "100g", price: 20 },
-          { name: "ベーコン", amount: "20g", price: 25 },
-          { name: "玉ねぎ", amount: "30g", price: 8 },
-          { name: "ピーマン", amount: "1/2個", price: 10 },
-          { name: "ケチャップ・調味料", amount: "-", price: 15 }
-        ],
-        ch_sand: [
-          { name: "食パン（8枚切）", amount: "3枚", price: 24 },
-          { name: "鶏むね肉", amount: "40g", price: 32 },
-          { name: "ベーコン", amount: "1枚", price: 18 },
-          { name: "トマト", amount: "1/4個", price: 15 },
-          { name: "レタス", amount: "1枚", price: 10 },
-          { name: "マヨネーズ・ソース", amount: "-", price: 8 }
-        ],
-        sifon_cake: [
-          { name: "薄力粉", amount: "20g", price: 5 },
-          { name: "卵", amount: "1個", price: 22 },
-          { name: "砂糖", amount: "15g", price: 4 },
-          { name: "サラダ油", amount: "10ml", price: 3 },
-          { name: "生クリーム", amount: "30g", price: 25 }
-        ]
-      }
-    };
-
+    // グローバル変数（menu.json からロードされます）
+    let menuData = { categories: [], ingredients: {} };
     let currentCategoryId = null;
 
     /* ==========================================
-       アプリケーション初期化
+       アプリケーション初期化（非同期でデータをロード）
        ========================================== */
-    window.addEventListener('DOMContentLoaded', () => {
-      // 1. スプラッシュ表示切り替え（最優先で実行）
+    window.addEventListener('DOMContentLoaded', async () => {
+      // 1. まず何よりも早くスプラッシュ表示を起動
       try {
         handleSplashScreen();
       } catch (err) {
@@ -442,14 +362,25 @@
         forceShowMenu();
       }
 
-      // 2. メインメニュー生成
+      // 2. menu.json からデータを非同期で取得
+      try {
+        const response = await fetch('./menu.json');
+        if (!response.ok) {
+          throw new Error('menu.json の読み込みに失敗しました');
+        }
+        menuData = await response.json();
+      } catch (err) {
+        console.error("データのダウンロードに失敗しました（仮データで起動します）:", err);
+      }
+
+      // 3. メインメニュー生成
       try {
         initMainMenu();
       } catch (err) {
         console.error("メインメニュー生成エラー:", err);
       }
 
-      // 3. インストールプロンプト設定
+      // 4. インストールプロンプト設定
       try {
         initInstallPrompt();
       } catch (err) {
@@ -477,7 +408,7 @@
       }, 1000);
     }
 
-    // 強制的にメニューを表示するレスキュー処理
+    // レスキュー処理
     function forceShowMenu() {
       const splash = document.getElementById('splash-screen');
       const menu = document.getElementById('menu-screen');
@@ -485,11 +416,16 @@
       if (menu) menu.classList.remove('hidden');
     }
 
-    // おしながき生成
+    // おしながき（メインメニュー）生成
     function initMainMenu() {
       const container = document.getElementById('main-menu-container');
       if (!container) return;
       container.innerHTML = '';
+
+      if (!menuData.categories || menuData.categories.length === 0) {
+        container.innerHTML = '<p style="grid-column: span 2; text-align: center; color: #a0aec0; padding: 20px;">データが読み込めませんでした</p>';
+        return;
+      }
 
       menuData.categories.forEach(cat => {
         const btn = document.createElement('button');
@@ -518,7 +454,7 @@
       if (!container) return;
       container.innerHTML = '';
 
-      if (category.items.length === 0) {
+      if (!category.items || category.items.length === 0) {
         container.innerHTML = '<p style="grid-column: span 2; text-align: center; color: #a0aec0; padding: 20px;">データがありません</p>';
       } else {
         category.items.forEach(item => {
@@ -557,12 +493,15 @@
       let totalCost = 0;
 
       list.forEach(ing => {
-        totalCost += ing.price;
+        // 小数点がある場合も美しく計算して四捨五入（または小数点第1位まで表示）
+        const price = parseFloat(ing.price) || 0;
+        totalCost += price;
+        
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${ing.name}</td>
           <td>${ing.amount}</td>
-          <td class="text-right">${ing.price}</td>
+          <td class="text-right">${price.toFixed(1).replace('.0', '')}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -572,7 +511,7 @@
       totalTr.innerHTML = `
         <td>合計</td>
         <td></td>
-        <td class="text-right">${totalCost}</td>
+        <td class="text-right">${totalCost.toFixed(1).replace('.0', '')}</td>
       `;
       tbody.appendChild(totalTr);
 
@@ -616,7 +555,6 @@
 
         if (!promptEl) return;
 
-        // PWAStandalone状態のチェックを安全に実行
         let isStandalone = false;
         try {
           isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
@@ -626,7 +564,6 @@
         }
         if (isStandalone) return;
 
-        // Chrome/Android対応
         window.addEventListener('beforeinstallprompt', (e) => {
           e.preventDefault();
           deferredPrompt = e;
@@ -642,7 +579,7 @@
               deferredPrompt.prompt();
               deferredPrompt.userChoice.then((choiceResult) => {
                 deferredPrompt = null;
-              }).catch(err => console.error("PWAダイアログ表示エラー:", err));
+              }).catch(err => console.error("PWAダイアログエラー:", err));
             }
           });
         }
@@ -653,7 +590,6 @@
           });
         }
 
-        // iOS(Safari)対応
         let isIos = false;
         let isSafari = false;
         try {
@@ -679,7 +615,7 @@
           }
         }
       } catch (globalErr) {
-        console.error("インストールプロンプト制御全体の実行エラー:", globalErr);
+        console.error("インストールプロンプト全体エラー:", globalErr);
       }
     }
 
