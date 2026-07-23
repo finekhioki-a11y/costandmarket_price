@@ -1,9 +1,11 @@
-const CACHE_NAME = 'cost-and-market-v1';
+const CACHE_NAME = 'cost-and-market-v4'; // バージョンを v4 に更新
 const ASSETS = [
   './',
   './index.html',
-  './splash_fine.jpg',
-  './kyofu_ramen.jpg'
+  './menu.json',  
+  './splash_fine.webp', // スプラッシュ画像を WebP に変更
+  './kyofu_ramen.webp',  // 京風ラーメン画像を WebP に変更
+  './icon_ff.jpg'        // アイコンは互換性のためJPGのままが推奨されます
 ];
 
 // アプリのインストール時にファイルをキャッシュ
