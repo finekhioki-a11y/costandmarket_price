@@ -15,8 +15,8 @@
       ]
     },
     {
-      "id": "meshi_bread",
-      "name": "めし／パン類",
+      "id": "rice_meals",
+      "name": "ごはん類",
       "items": [
         { "id": "onigiri", "name": "おにぎり", "image": "onigiri.webp" },
         { "id": "karaagedon", "name": "唐揚げ丼", "image": "karaagedon.webp" },
@@ -26,7 +26,13 @@
         { "id": "ebipirafu_s", "name": "エビピラフS", "image": "ebipirafu_s.webp" },
         { "id": "negishio_butadon", "name": "ネギ塩豚丼", "image": "negishio_butadon.webp" },
         { "id": "lettuce_chahan", "name": "レタスチャーハン", "image": "lettuce_chahan.webp" },
-        { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.webp" },
+        { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.webp" }
+      ]
+    },
+    {
+      "id": "bread_meals",
+      "name": "パン類",
+      "items": [
         { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.webp" }
       ]
     },
@@ -52,12 +58,6 @@
       "items": [
         { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.webp" }
       ]
-    },
-    {
-      "id": "blank",
-      "name": "（空欄）",
-      "items": [],
-      "isBlank": true
     }
   ],
   "ingredients": {
@@ -197,24 +197,4 @@
       { "name": "香味和風だし（20㎖）", "amount": "20ml", "price": 10.1 },
       { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
       { "name": "豚肉（25ｇ）", "amount": "25g", "price": 36.5 }
-    ],
-    "menchikatsu": [
-      { "name": "メンチカツ（1個）", "amount": "1個", "price": 176.4 }
-    ],
-    "ch_sand": [
-      { "name": "食パン（8枚切）", "amount": "3枚", "price": 24.0 },
-      { "name": "鶏むね肉", "amount": "40g", "price": 32.0 },
-      { "name": "ベーコン", "amount": "1枚", "price": 18.0 },
-      { "name": "トマト", "amount": "1/4個", "price": 15.0 },
-      { "name": "レタス", "amount": "1枚", "price": 10.0 },
-      { "name": "マヨネーズ・ソース", "amount": "-", "price": 8.0 }
-    ],
-    "sifon_cake": [
-      { "name": "薄力粉", "amount": "20g", "price": 5.0 },
-      { "name": "卵", "amount": "1個", "price": 22.0 },
-      { "name": "砂糖", "amount": "15g", "price": 4.0 },
-      { "name": "サラダ油", "amount": "10ml", "price": 3.0 },
-      { "name": "生クリーム", "amount": "30g", "price": 25.0 }
     ]
-  }
-}
