@@ -1,6 +1,8 @@
 {
   "short_name": "FCM",
-  "name": " ",
+  "name": "FCM",  
+  /* ↑ Chromeのインストール要件を満たすため、有効な名前（FCM）に戻しました */
+  
   "icons": [
     {
       "src": "icon_ff.jpg",
@@ -17,9 +19,7 @@
   ],
   "start_url": "./index.html",
   "background_color": "#000000",
-  "display": "fullscreen",  
-  /* ↑ ここを「fullscreen」にすることで、システムバーを隠して画面全体に表示させます */
-  
+  "display": "fullscreen",
   "theme_color": "#4a5568",
   "orientation": "portrait"
 }
