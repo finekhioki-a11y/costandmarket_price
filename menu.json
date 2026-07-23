@@ -304,4 +304,70 @@
     ],
     "croquette_sand": [
       { "name": "パン３６枚切り（2枚）", "amount": "2枚", "price": 36.0 },
-      { "name":
+      { "name": "コロッケ（1個）", "amount": "1個", "price": 104.0 },
+      { "name": "シューストポテト（50ｇ）", "amount": "50g", "price": 20.5 },
+      { "name": "レタス（10ｇ）", "amount": "10g", "price": 5.0 },
+      { "name": "塩ミニパック", "amount": "-", "price": 1.9 },
+      { "name": "コンソメ（5ｇ）", "amount": "5g", "price": 10.5 }
+    ],
+    "steak_set": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "ステーキ", "amount": "-", "price": 480.0 },
+      { "name": "シャリアピンソース（40ｇ）", "amount": "40g", "price": 25.0 },
+      { "name": "レモン（1/8）", "amount": "1/8個", "price": 8.7 }
+    ],
+    "steak_hamburg_set": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "ハンバーグ（1個）", "amount": "1個", "price": 150.0 },
+      { "name": "シャリアピンソース（80ｇ）", "amount": "80g", "price": 50.0 },
+      { "name": "レモン（1/8）", "amount": "1/8個", "price": 8.7 },
+      { "name": "ステーキ", "amount": "-", "price": 480.0 }
+    ],
+    "hamburg_set": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 51.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "ハンバーグ（1個）", "amount": "1個", "price": 150.0 },
+      { "name": "唐揚げの素（15ｇ）", "amount": "15g", "price": 9.2 },
+      { "name": "鶏肉（2個）", "amount": "2個", "price": 129.8 },
+      { "name": "デミグラスソース（60ｇ）", "amount": "60g", "price": 46.2 }
+    ],
+    "shougayaki": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "豚肉（100ｇ）", "amount": "100g", "price": 146.0 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 }
+    ],
+    "yakiniku_karbi": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "牛肉（1袋）", "amount": "1袋", "price": 300.0 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 },
+      { "name": "焼肉のたれ（40㎖）", "amount": "40ml", "price": 26.8 }
+    ],
+    "shio_karbi": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "牛肉（1袋）", "amount": "1袋", "price": 300.0 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 },
+      { "name": "塩だれ（40㎖）", "amount": "40ml", "price": 42.6 }
+    ],
+    "salmon_pasta": [
+      { "name": "パスタ（1玉）", "amount": "1玉", "price": 109.3 },
+      { "name": "鮭（1個）", "amount": "1個", "price": 132.0 },
+      { "name": "レモン（2/8）", "amount": "2/8個", "price": 17.4 },
+      { "name": "白ワイン（30㎖）", "amount": "30ml", "price": 19.5 },
+      { "name": "コンソメ（10ｇ）", "amount": "10g", "price": 21.0 },
+      { "name": "牛乳（150㎖）", "amount": "150ml", "price": 37.5 },
+      { "name": "オリーブオイル（5㎖）", "amount": "5ml", "price": 10.3 },
+      { "name": "パセリ（1ｇ）", "amount": "1g", "price": 8.5 }
+    ]
+  }
+}
