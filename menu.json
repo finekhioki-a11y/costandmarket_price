@@ -4,53 +4,53 @@
       "id": "udon_ramen",
       "name": "うどん／ラーメン",
       "items": [
-        { "id": "kyofu_ramen", "name": "京風ラーメン", "image": "kyofu_ramen.jpg" },
-        { "id": "tanmen", "name": "タンメン", "image": "tanmen.jpg" },
-        { "id": "source_yakiudon", "name": "ソース焼きうどん", "image": "source_yakiudon.jpg" },
-        { "id": "kakiage_udon", "name": "かき揚げうどん", "image": "kakiage_udon.jpg" },
-        { "id": "butashio_udon", "name": "豚塩うどん", "image": "butashio_udon.jpg" },
-        { "id": "wakame_udon", "name": "わかめうどん", "image": "wakame_udon.jpg" },
-        { "id": "mentai_kamatama_udon", "name": "明太釜玉うどん", "image": "mentai_kamatama_udon.jpg" },
-        { "id": "curry_udon", "name": "カレーうどん", "image": "curry_udon.jpg" }
+        { "id": "kyofu_ramen", "name": "京風ラーメン", "image": "kyofu_ramen.webp" },
+        { "id": "tanmen", "name": "たんめん", "image": "tanmen.webp" },
+        { "id": "source_yakiudon", "name": "ソース焼きうどん", "image": "source_yakiudon.webp" },
+        { "id": "kakiage_udon", "name": "かき揚げうどん", "image": "kakiage_udon.webp" },
+        { "id": "butashio_udon", "name": "豚塩うどん", "image": "butashio_udon.webp" },
+        { "id": "wakame_udon", "name": "わかめうどん", "image": "wakame_udon.webp" },
+        { "id": "mentai_kamatama_udon", "name": "明太釜玉うどん", "image": "mentai_kamatama_udon.webp" },
+        { "id": "curry_udon", "name": "カレーうどん", "image": "curry_udon.webp" }
       ]
     },
     {
       "id": "meshi_bread",
       "name": "めし／パン類",
       "items": [
-        { "id": "onigiri", "name": "おにぎり", "image": "onigiri.jpg" },
-        { "id": "karaagedon", "name": "唐揚げ丼", "image": "karaagedon.jpg" },
-        { "id": "gomoku_chahan", "name": "五目炒飯", "image": "gomoku_chahan.jpg" },
-        { "id": "mentai_don", "name": "明太丼", "image": "mentai_don.jpg" },
-        { "id": "rice", "name": "ライス", "image": "rice.jpg" },
-        { "id": "ebipirafu_s", "name": "エビピラフS", "image": "ebipirafu_s.jpg" },
-        { "id": "negishio_butadon", "name": "ネギ塩豚丼", "image": "negishio_butadon.jpg" },
-        { "id": "lettuce_chahan", "name": "レタスチャーハン", "image": "lettuce_chahan.jpg" },
-        { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.jpg" },
-        { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.jpg" }
+        { "id": "onigiri", "name": "おにぎり", "image": "onigiri.webp" },
+        { "id": "karaagedon", "name": "唐揚げ丼", "image": "karaagedon.webp" },
+        { "id": "gomoku_chahan", "name": "五目炒飯", "image": "gomoku_chahan.webp" },
+        { "id": "mentai_don", "name": "明太丼", "image": "mentai_don.webp" },
+        { "id": "rice", "name": "ライス", "image": "rice.webp" },
+        { "id": "ebipirafu_s", "name": "エビピラフS", "image": "ebipirafu_s.webp" },
+        { "id": "negishio_butadon", "name": "ネギ塩豚丼", "image": "negishio_butadon.webp" },
+        { "id": "lettuce_chahan", "name": "レタスチャーハン", "image": "lettuce_chahan.webp" },
+        { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.webp" },
+        { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.webp" }
       ]
     },
     {
       "id": "pizza_pasta",
       "name": "ピザ／パスタ",
       "items": [
-        { "id": "napo", "name": "ナポリタン", "image": "napo.jpg" }
+        { "id": "napo", "name": "ナポリタン", "image": "napo.webp" }
       ]
     },
     {
       "id": "sets",
       "name": "セット",
       "items": [
-        { "id": "salad", "name": "サラダ", "image": "salad.jpg" },
-        { "id": "croquette", "name": "コロッケ", "image": "croquette.jpg" },
-        { "id": "menchikatsu", "name": "メンチカツ", "image": "menchikatsu.jpg" }
+        { "id": "salad", "name": "サラダ", "image": "salad.webp" },
+        { "id": "croquette", "name": "コロッケ", "image": "croquette.webp" },
+        { "id": "menchikatsu", "name": "メンチカツ", "image": "menchikatsu.webp" }
       ]
     },
     {
       "id": "sweets",
       "name": "スイーツ",
       "items": [
-        { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.jpg" }
+        { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.webp" }
       ]
     },
     {
