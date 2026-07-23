@@ -26,21 +26,28 @@
         { "id": "ebipirafu_s", "name": "エビピラフS", "image": "ebipirafu_s.webp" },
         { "id": "negishio_butadon", "name": "ネギ塩豚丼", "image": "negishio_butadon.webp" },
         { "id": "lettuce_chahan", "name": "レタスチャーハン", "image": "lettuce_chahan.webp" },
-        { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.webp" }
+        { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.webp" },
+        { "id": "katsumeshi", "name": "かつめし", "image": "katsumeshi.webp" }
       ]
     },
     {
       "id": "bread_meals",
       "name": "パン類",
       "items": [
-        { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.webp" }
+        { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.webp" },
+        { "id": "granola", "name": "グラノーラ", "image": "granola.webp" },
+        { "id": "toast_set", "name": "トーストセット", "image": "toast_set.webp" },
+        { "id": "menchikatsu_sand", "name": "メンチカツサンド", "image": "menchikatsu_sand.webp" },
+        { "id": "kakiage_sand", "name": "かき揚げサンド", "image": "kakiage_sand.webp" },
+        { "id": "croquette_sand", "name": "コロッケサンド", "image": "croquette_sand.webp" }
       ]
     },
     {
       "id": "pizza_pasta",
       "name": "ピザ／パスタ",
       "items": [
-        { "id": "napo", "name": "ナポリタン", "image": "napo.webp" }
+        { "id": "napo", "name": "ナポリタン", "image": "napo.webp" },
+        { "id": "salmon_pasta", "name": "サーモンパスタ", "image": "salmon_pasta.webp" }
       ]
     },
     {
@@ -49,14 +56,27 @@
       "items": [
         { "id": "salad", "name": "サラダ", "image": "salad.webp" },
         { "id": "croquette", "name": "コロッケ", "image": "croquette.webp" },
-        { "id": "menchikatsu", "name": "メンチカツ", "image": "menchikatsu.webp" }
+        { "id": "menchikatsu", "name": "メンチカツ", "image": "menchikatsu.webp" },
+        { "id": "steak_set", "name": "ステーキセット", "image": "steak_set.webp" },
+        { "id": "steak_hamburg_set", "name": "ステーキハンバーグセット", "image": "steak_hamburg_set.webp" },
+        { "id": "hamburg_set", "name": "ハンバーグセット", "image": "hamburg_set.webp" },
+        { "id": "shougayaki", "name": "生姜焼き", "image": "shougayaki.webp" },
+        { "id": "yakiniku_karbi", "name": "焼肉カルビ", "image": "yakiniku_karbi.webp" },
+        { "id": "shio_karbi", "name": "塩カルビ", "image": "shio_karbi.webp" }
       ]
     },
     {
       "id": "sweets",
       "name": "スイーツ",
       "items": [
-        { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.webp" }
+        { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.webp" },
+        { "id": "ice_cream", "name": "アイスクリーム", "image": "ice_cream.webp" },
+        { "id": "grape_soda_float", "name": "グレープソーダフロート", "image": "grape_soda_float.webp" },
+        { "id": "lemon_soda_float", "name": "レモンソーダフロート", "image": "lemon_soda_float.webp" },
+        { "id": "smoothie_matcha", "name": "スムージー（抹茶）", "image": "smoothie_matcha.webp" },
+        { "id": "cola_float", "name": "コーラフロート", "image": "cola_float.webp" },
+        { "id": "coffee_float", "name": "コーヒーフロート", "image": "coffee_float.webp" },
+        { "id": "premium_parfait", "name": "プレミアムパフェ", "image": "premium_parfait.webp" }
       ]
     }
   ],
@@ -215,6 +235,73 @@
       { "name": "砂糖", "amount": "15g", "price": 4.0 },
       { "name": "サラダ油", "amount": "10ml", "price": 3.0 },
       { "name": "生クリーム", "amount": "30g", "price": 25.0 }
-    ]
-  }
-}
+    ],
+    "ice_cream": [
+      { "name": "アイスクリーム（50ｇ）", "amount": "50g", "price": 24.2 },
+      { "name": "モナンソース S（10ｇ）", "amount": "10g", "price": 21.7 }
+    ],
+    "grape_soda_float": [
+      { "name": "アイスクリーム（50ｇ）", "amount": "50g", "price": 24.2 },
+      { "name": "モナングレープ（30㎖）", "amount": "30ml", "price": 65.1 }
+    ],
+    "lemon_soda_float": [
+      { "name": "アイスクリーム（50ｇ）", "amount": "50g", "price": 24.2 },
+      { "name": "モナンレモン（30㎖）", "amount": "30ml", "price": 67.7 }
+    ],
+    "smoothie_matcha": [
+      { "name": "牛乳（110㎖）", "amount": "110ml", "price": 27.5 },
+      { "name": "抹茶（30ｇ）", "amount": "30g", "price": 131.1 },
+      { "name": "ホイップクリーム（5㎖）", "amount": "5ml", "price": 14.0 }
+    ],
+    "cola_float": [
+      { "name": "アイスクリーム（50ｇ）", "amount": "50g", "price": 24.2 },
+      { "name": "コーラ（160㎖）", "amount": "160ml", "price": 34.3 }
+    ],
+    "coffee_float": [
+      { "name": "アイスクリーム（50ｇ）", "amount": "50g", "price": 24.2 },
+      { "name": "コーヒー（160㎖）", "amount": "160ml", "price": 28.16 }
+    ],
+    "premium_parfait": [
+      { "name": "グラノーラ（30ｇ）", "amount": "30g", "price": 27.45 },
+      { "name": "アイスクリーム（50ｇ）", "amount": "50g", "price": 24.2 },
+      { "name": "ホイップクリーム（5㎖）", "amount": "5ml", "price": 14.0 },
+      { "name": "モナンソース S（10ｇ）", "amount": "10g", "price": 21.7 },
+      { "name": "シフォンケーキ（15ｇ）", "amount": "15g", "price": 31.9 }
+    ],
+    "katsumeshi": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "とんかつ（1枚）", "amount": "1枚", "price": 180.0 },
+      { "name": "デミグラスソース（40ｇ）", "amount": "40g", "price": 31.0 }
+    ],
+    "granola": [
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "グラノーラ（80ｇ）", "amount": "80g", "price": 73.2 },
+      { "name": "牛乳（150㎖）", "amount": "150ml", "price": 37.5 }
+    ],
+    "toast_set": [
+      { "name": "パン（18枚切り）", "amount": "18枚切", "price": 36.0 },
+      { "name": "ベーコン（1枚）", "amount": "1枚", "price": 40.4 },
+      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
+      { "name": "たまご（1個）", "amount": "1個", "price": 30.0 }
+    ],
+    "menchikatsu_sand": [
+      { "name": "パン３６枚切り（2枚）", "amount": "2枚", "price": 36.0 },
+      { "name": "メンチカツ（1個）", "amount": "1個", "price": 176.0 },
+      { "name": "シューストポテト（50ｇ）", "amount": "50g", "price": 20.5 },
+      { "name": "レタス（10ｇ）", "amount": "10g", "price": 5.0 },
+      { "name": "塩ミニパック", "amount": "-", "price": 1.9 },
+      { "name": "コンソメ（5ｇ）", "amount": "5g", "price": 10.5 }
+    ],
+    "kakiage_sand": [
+      { "name": "パン３６枚切り（2枚）", "amount": "2枚", "price": 36.0 },
+      { "name": "かきあげ（1個）", "amount": "1個", "price": 76.0 },
+      { "name": "シューストポテト（50ｇ）", "amount": "50g", "price": 20.5 },
+      { "name": "レタス（10ｇ）", "amount": "10g", "price": 5.0 },
+      { "name": "塩ミニパック", "amount": "-", "price": 1.9 },
+      { "name": "コンソメ（5ｇ）", "amount": "5g", "price": 10.5 }
+    ],
+    "croquette_sand": [
+      { "name": "パン３６枚切り（2枚）", "amount": "2枚", "price": 36.0 },
+      { "name":
