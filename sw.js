@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cost-and-market-v6'; // バージョンを v5 に更新
+const CACHE_NAME = 'cost-and-market-v5'; // バージョンを v5 に更新
 const ASSETS = [
   './',
   './index.html',
