@@ -15,8 +15,8 @@
       ]
     },
     {
-      "id": "rice_meals",
-      "name": "ごはん類",
+      "id": "meshi_bread",
+      "name": "めし／パン類",
       "items": [
         { "id": "onigiri", "name": "おにぎり", "image": "onigiri.webp" },
         { "id": "karaagedon", "name": "唐揚げ丼", "image": "karaagedon.webp" },
@@ -27,19 +27,7 @@
         { "id": "negishio_butadon", "name": "ネギ塩豚丼", "image": "negishio_butadon.webp" },
         { "id": "lettuce_chahan", "name": "レタスチャーハン", "image": "lettuce_chahan.webp" },
         { "id": "kakiage_tamagodon", "name": "かき揚げ玉子丼", "image": "kakiage_tamagodon.webp" },
-        { "id": "katsumeshi", "name": "かつめし", "image": "katsumeshi.webp" }
-      ]
-    },
-    {
-      "id": "bread_meals",
-      "name": "パン類",
-      "items": [
-        { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.webp" },
-        { "id": "granola", "name": "グラノーラ", "image": "granola.webp" },
-        { "id": "toast_set", "name": "トーストセット", "image": "toast_set.webp" },
-        { "id": "menchikatsu_sand", "name": "メンチカツサンド", "image": "menchikatsu_sand.webp" },
-        { "id": "kakiage_sand", "name": "かき揚げサンド", "image": "kakiage_sand.webp" },
-        { "id": "croquette_sand", "name": "コロッケサンド", "image": "croquette_sand.webp" }
+        { "id": "ch_sand", "name": "クラブハウスサンド", "image": "ch_sand.webp" }
       ]
     },
     {
@@ -47,7 +35,8 @@
       "name": "ピザ／パスタ",
       "items": [
         { "id": "napo", "name": "ナポリタン", "image": "napo.webp" },
-        { "id": "salmon_pasta", "name": "サーモンパスタ", "image": "salmon_pasta.webp" }
+        { "id": "mentai_mayo_pasta", "name": "明太マヨパスタ", "image": "mentai_mayo_pasta.webp" },
+        { "id": "meat_pasta", "name": "ミートパスタ", "image": "meat_pasta.webp" }
       ]
     },
     {
@@ -57,172 +46,166 @@
         { "id": "salad", "name": "サラダ", "image": "salad.webp" },
         { "id": "croquette", "name": "コロッケ", "image": "croquette.webp" },
         { "id": "menchikatsu", "name": "メンチカツ", "image": "menchikatsu.webp" },
-        { "id": "steak_set", "name": "ステーキセット", "image": "steak_set.webp" },
-        { "id": "steak_hamburg_set", "name": "ステーキハンバーグセット", "image": "steak_hamburg_set.webp" },
-        { "id": "hamburg_set", "name": "ハンバーグセット", "image": "hamburg_set.webp" },
-        { "id": "shougayaki", "name": "生姜焼き", "image": "shougayaki.webp" },
-        { "id": "yakiniku_karbi", "name": "焼肉カルビ", "image": "yakiniku_karbi.webp" },
-        { "id": "shio_karbi", "name": "塩カルビ", "image": "shio_karbi.webp" }
+        { "id": "rokomoko_plate", "name": "ロコモコプレート", "image": "rokomoko_plate.webp" }
       ]
     },
     {
       "id": "sweets",
       "name": "スイーツ",
       "items": [
-        { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.webp" },
-        { "id": "ice_cream", "name": "アイスクリーム", "image": "ice_cream.webp" },
-        { "id": "grape_soda_float", "name": "グレープソーダフロート", "image": "grape_soda_float.webp" },
-        { "id": "lemon_soda_float", "name": "レモンソーダフロート", "image": "lemon_soda_float.webp" },
-        { "id": "smoothie_matcha", "name": "スムージー（抹茶）", "image": "smoothie_matcha.webp" },
-        { "id": "cola_float", "name": "コーラフロート", "image": "cola_float.webp" },
-        { "id": "coffee_float", "name": "コーヒーフロート", "image": "coffee_float.webp" },
-        { "id": "premium_parfait", "name": "プレミアムパフェ", "image": "premium_parfait.webp" }
+        { "id": "sifon_cake", "name": "シフォンケーキ", "image": "sifon_cake.webp" }
       ]
+    },
+    {
+      "id": "blank",
+      "name": "（空欄）",
+      "items": [],
+      "isBlank": true
     }
   ],
   "ingredients": {
     "onigiri": [
-      { "name": "ごはん", "amount": "150g", "price": 94.5 },
+      { "name": "ごはん（150ｇ）", "amount": "150g", "price": 94.5 },
       { "name": "味付け海苔", "amount": "-", "price": 14.0 },
-      { "name": "梅干し", "amount": "1個", "price": 15.3 }
+      { "name": "梅干し（1個）", "amount": "1個", "price": 15.3 }
     ],
     "karaagedon": [
-      { "name": "ごはん", "amount": "150g", "price": 94.5 },
-      { "name": "唐揚げの素", "amount": "15g", "price": 9.2 },
-      { "name": "鶏肉", "amount": "2個", "price": 129.8 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "焼肉のたれ", "amount": "10ml", "price": 6.7 },
+      { "name": "ごはん（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "唐揚げの素（15ｇ）", "amount": "15g", "price": 9.2 },
+      { "name": "鶏肉（2個）", "amount": "2個", "price": 129.8 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "焼肉のたれ（10㎖）", "amount": "10ml", "price": 6.7 },
       { "name": "きざみのり", "amount": "-", "price": 6.4 }
     ],
     "source_yakiudon": [
-      { "name": "うどん", "amount": "1玉", "price": 62.0 },
-      { "name": "豚肉", "amount": "50g", "price": 73.0 },
-      { "name": "紅しょうが", "amount": "3g", "price": 1.3 },
-      { "name": "キャベツ", "amount": "30g", "price": 2.3 },
-      { "name": "とんかつソース", "amount": "20ml", "price": 6.2 },
-      { "name": "香味和風だし", "amount": "5ml", "price": 2.5 },
-      { "name": "花かつお", "amount": "1g", "price": 3.4 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 }
+      { "name": "うどん（1玉）", "amount": "1玉", "price": 62.0 },
+      { "name": "豚肉（50ｇ）", "amount": "50g", "price": 73.0 },
+      { "name": "紅しょうが（3ｇ）", "amount": "3g", "price": 1.3 },
+      { "name": "キャベツ（30ｇ）", "amount": "30g", "price": 2.3 },
+      { "name": "とんかつソース（20㎖）", "amount": "20ml", "price": 6.2 },
+      { "name": "香味和風だし（5㎖）", "amount": "5ml", "price": 2.5 },
+      { "name": "花かつお（1ｇ）", "amount": "1g", "price": 3.4 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 }
     ],
     "kakiage_udon": [
-      { "name": "うどん", "amount": "1玉", "price": 62.0 },
-      { "name": "香味和風だし", "amount": "40ml", "price": 20.2 },
-      { "name": "かきあげ", "amount": "1個", "price": 76.0 },
-      { "name": "きざみのり", "amount": "5g", "price": 6.4 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "七味", "amount": "1袋", "price": 1.7 }
+      { "name": "うどん（1玉）", "amount": "1玉", "price": 62.0 },
+      { "name": "香味和風だし（40㎖）", "amount": "40ml", "price": 20.2 },
+      { "name": "かきあげ（1個）", "amount": "1個", "price": 76.0 },
+      { "name": "きざみのり（5ｇ）", "amount": "5g", "price": 6.4 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "七味（1袋）", "amount": "1袋", "price": 1.7 }
     ],
     "gomoku_chahan": [
-      { "name": "五目炒飯", "amount": "250g", "price": 200.0 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "福神漬け", "amount": "5g", "price": 1.5 }
+      { "name": "五目炒飯（250ｇ）", "amount": "250g", "price": 200.0 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "福神漬け（5ｇ）", "amount": "5g", "price": 1.5 }
     ],
     "mentai_don": [
-      { "name": "ごはん", "amount": "150g", "price": 94.5 },
-      { "name": "明太子", "amount": "30g", "price": 75.0 },
-      { "name": "ネギ", "amount": "5g", "price": 3.0 },
+      { "name": "ごはん（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "明太子（30ｇ）", "amount": "30g", "price": 75.0 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 3.0 },
       { "name": "味付け海苔", "amount": "-", "price": 14.0 }
     ],
     "butashio_udon": [
-      { "name": "うどん", "amount": "1玉", "price": 62.0 },
-      { "name": "豚肉", "amount": "50g", "price": 73.0 },
-      { "name": "紅しょうが", "amount": "3g", "price": 1.3 },
-      { "name": "キャベツ", "amount": "30g", "price": 2.3 },
-      { "name": "塩だれ", "amount": "10ml", "price": 10.3 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 }
+      { "name": "うどん（1玉）", "amount": "1玉", "price": 62.0 },
+      { "name": "豚肉（50ｇ）", "amount": "50g", "price": 73.0 },
+      { "name": "紅しょうが（3ｇ）", "amount": "3g", "price": 1.3 },
+      { "name": "キャベツ（30ｇ）", "amount": "30g", "price": 2.3 },
+      { "name": "塩だれ（10㎖）", "amount": "10ml", "price": 10.3 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 }
     ],
     "tanmen": [
-      { "name": "ラーメン", "amount": "1玉", "price": 52.0 },
-      { "name": "豚肉", "amount": "25g", "price": 36.5 },
-      { "name": "キャベツ", "amount": "60g", "price": 4.6 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 },
-      { "name": "レタス", "amount": "30g", "price": 5.3 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "ごま油", "amount": "5ml", "price": 6.2 },
-      { "name": "コンソメ", "amount": "15g", "price": 33.3 }
+      { "name": "ラーメン（1玉）", "amount": "1玉", "price": 52.0 },
+      { "name": "豚肉（25ｇ）", "amount": "25g", "price": 36.5 },
+      { "name": "キャベツ（60ｇ）", "amount": "60g", "price": 4.6 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 },
+      { "name": "レタス（30ｇ）", "amount": "30g", "price": 5.3 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "ごま油（5㎖）", "amount": "5ml", "price": 6.2 },
+      { "name": "コンソメ（15ｇ）", "amount": "15g", "price": 33.3 }
     ],
     "ebipirafu_s": [
-      { "name": "えびピラフ", "amount": "250g", "price": 230.0 },
-      { "name": "唐揚げの素", "amount": "15g", "price": 9.2 },
-      { "name": "鶏肉", "amount": "2個", "price": 86.5 },
-      { "name": "たまご", "amount": "1個", "price": 30.0 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
+      { "name": "えびピラフ（250g）", "amount": "250g", "price": 230.0 },
+      { "name": "唐揚げの素（15ｇ）", "amount": "15g", "price": 9.2 },
+      { "name": "鶏肉（2個）", "amount": "2個", "price": 86.5 },
+      { "name": "たまご（1個）", "amount": "1個", "price": 30.0 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
       { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "塩ミニパック", "amount": "1袋", "price": 1.9 }
+      { "name": "塩ミニパック（1袋）", "amount": "1袋", "price": 1.9 }
     ],
     "rice": [
-      { "name": "ご飯", "amount": "150g", "price": 94.5 }
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 }
     ],
     "wakame_udon": [
-      { "name": "うどん", "amount": "1玉", "price": 62.0 },
-      { "name": "香味和風だし", "amount": "40ml", "price": 20.2 },
+      { "name": "うどん（1玉）", "amount": "1玉", "price": 62.0 },
+      { "name": "香味和風だし（40㎖）", "amount": "40ml", "price": 20.2 },
       { "name": "わかめ", "amount": "-", "price": 2.6 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "七味", "amount": "1袋", "price": 1.7 }
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "七味（1袋）", "amount": "1袋", "price": 1.7 }
     ],
     "kyofu_ramen": [
-      { "name": "ラーメン", "amount": "1玉", "price": 52.0 },
-      { "name": "香味和風だし", "amount": "40ml", "price": 20.2 },
-      { "name": "かきあげ", "amount": "1個", "price": 76.0 },
+      { "name": "ラーメン（1玉）", "amount": "1玉", "price": 52.0 },
+      { "name": "香味和風だし（40㎖）", "amount": "40ml", "price": 20.2 },
+      { "name": "かきあげ（1個）", "amount": "1個", "price": 76.0 },
       { "name": "味付け海苔", "amount": "-", "price": 14.0 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 }
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 }
     ],
     "negishio_butadon": [
-      { "name": "ごはん", "amount": "150g", "price": 94.5 },
-      { "name": "豚肉", "amount": "25g", "price": 36.5 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 },
-      { "name": "塩だれ", "amount": "10ml", "price": 10.3 },
-      { "name": "ネギ", "amount": "5g", "price": 3.0 }
+      { "name": "ごはん（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "豚肉（25ｇ）", "amount": "25g", "price": 36.5 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 },
+      { "name": "塩だれ（10㎖）", "amount": "10ml", "price": 10.3 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 3.0 }
     ],
     "lettuce_chahan": [
-      { "name": "五目炒飯", "amount": "250g", "price": 200.0 },
-      { "name": "レタス", "amount": "50g", "price": 25.0 },
-      { "name": "レモン", "amount": "1/8個", "price": 8.7 },
-      { "name": "福神漬け", "amount": "5g", "price": 1.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "ネギ", "amount": "5g", "price": 3.0 },
-      { "name": "ごま油", "amount": "5ml", "price": 6.2 }
+      { "name": "五目炒飯（250ｇ）", "amount": "250g", "price": 200.0 },
+      { "name": "レタス（50ｇ）", "amount": "50g", "price": 25.0 },
+      { "name": "レモン（1/8）", "amount": "1/8個", "price": 8.7 },
+      { "name": "福神漬け（5ｇ）", "amount": "5g", "price": 1.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 3.0 },
+      { "name": "ごま油（5㎖）", "amount": "5ml", "price": 6.2 }
     ],
     "mentai_kamatama_udon": [
-      { "name": "うどん", "amount": "1玉", "price": 62.0 },
-      { "name": "香味和風だし", "amount": "3ml", "price": 1.5 },
-      { "name": "バター", "amount": "5g", "price": 11.3 },
-      { "name": "明太子", "amount": "20g", "price": 49.7 },
-      { "name": "温玉", "amount": "1個", "price": 30.0 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "ごま油", "amount": "5ml", "price": 6.2 }
+      { "name": "うどん（1玉）", "amount": "1玉", "price": 62.0 },
+      { "name": "香味和風だし（3㎖）", "amount": "3ml", "price": 1.5 },
+      { "name": "バター（5ｇ）", "amount": "5g", "price": 11.3 },
+      { "name": "明太子（20ｇ）", "amount": "20g", "price": 49.7 },
+      { "name": "温玉（1個）", "amount": "1個", "price": 30.0 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "ごま油（5㎖）", "amount": "5ml", "price": 6.2 }
     ],
     "croquette": [
-      { "name": "コロッケ", "amount": "1個", "price": 104.0 }
+      { "name": "コロッケ（1個）", "amount": "1個", "price": 104.0 }
     ],
     "kakiage_tamagodon": [
-      { "name": "ごはん", "amount": "150g", "price": 94.5 },
-      { "name": "香味和風だし", "amount": "40ml", "price": 20.2 },
-      { "name": "かきあげ", "amount": "1個", "price": 76.0 },
+      { "name": "ごはん（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "香味和風だし（40㎖）", "amount": "40ml", "price": 20.2 },
+      { "name": "かきあげ（1個）", "amount": "1個", "price": 76.0 },
       { "name": "きざみのり", "amount": "-", "price": 6.4 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "たまご", "amount": "1個", "price": 30.0 },
-      { "name": "焼肉のたれ", "amount": "10ml", "price": 6.7 }
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "たまご（1個）", "amount": "1個", "price": 30.0 },
+      { "name": "焼肉のたれ（10㎖）", "amount": "10ml", "price": 6.7 }
     ],
     "salad": [
-      { "name": "レタス", "amount": "50g", "price": 25.0 },
-      { "name": "キャベツ", "amount": "60g", "price": 7.5 },
-      { "name": "トマト", "amount": "1/8個", "price": 12.5 },
-      { "name": "きゅうり", "amount": "2枚", "price": 6.1 },
-      { "name": "塩ドレッシング", "amount": "5ml", "price": 2.3 }
+      { "name": "レタス（50ｇ）", "amount": "50g", "price": 25.0 },
+      { "name": "キャベツ（60ｇ）", "amount": "60g", "price": 7.5 },
+      { "name": "トマト（1/8）", "amount": "1/8個", "price": 12.5 },
+      { "name": "きゅうり（スライス2枚）", "amount": "2枚", "price": 6.1 },
+      { "name": "塩ドレッシング（5㎖）", "amount": "5ml", "price": 2.3 }
     ],
     "curry_udon": [
-      { "name": "うどん", "amount": "1玉", "price": 62.0 },
-      { "name": "食研カレー", "amount": "1袋", "price": 128.0 },
-      { "name": "香味和風だし", "amount": "20ml", "price": 10.1 },
-      { "name": "ネギ", "amount": "5g", "price": 2.5 },
-      { "name": "豚肉", "amount": "25g", "price": 36.5 }
+      { "name": "うどん（1玉）", "amount": "1玉", "price": 62.0 },
+      { "name": "食研カレー（1袋）", "amount": "1袋", "price": 128.0 },
+      { "name": "香味和風だし（20㎖）", "amount": "20ml", "price": 10.1 },
+      { "name": "ネギ（5ｇ）", "amount": "5g", "price": 2.5 },
+      { "name": "豚肉（25ｇ）", "amount": "25g", "price": 36.5 }
     ],
     "menchikatsu": [
-      { "name": "メンチカツ", "amount": "1個", "price": 176.4 }
+      { "name": "メンチカツ（1個）", "amount": "1個", "price": 176.4 }
     ],
     "ch_sand": [
-      { "name": "食パン", "amount": "3枚", "price": 24.0 },
+      { "name": "食パン（8枚切）", "amount": "3枚", "price": 24.0 },
       { "name": "鶏むね肉", "amount": "40g", "price": 32.0 },
       { "name": "ベーコン", "amount": "1枚", "price": 18.0 },
       { "name": "トマト", "amount": "1/4個", "price": 15.0 },
@@ -236,138 +219,34 @@
       { "name": "サラダ油", "amount": "10ml", "price": 3.0 },
       { "name": "生クリーム", "amount": "30g", "price": 25.0 }
     ],
-    "ice_cream": [
-      { "name": "アイスクリーム", "amount": "50g", "price": 24.2 },
-      { "name": "モナンソース S", "amount": "10g", "price": 21.7 }
+    "napo": [
+      { "name": "パスタ（1玉）", "amount": "1玉", "price": 109.3 },
+      { "name": "ナポリタンソース（65ｇ）", "amount": "65g", "price": 71.8 },
+      { "name": "ベーコン（1枚）", "amount": "1枚", "price": 40.4 },
+      { "name": "たまねぎ（1/6）", "amount": "1/6個", "price": 10.8 },
+      { "name": "ピーマン（30ｇ）", "amount": "30g", "price": 34.6 },
+      { "name": "パルメザンチーズ（3ｇ）", "amount": "3g", "price": 3.0 }
     ],
-    "grape_soda_float": [
-      { "name": "アイスクリーム", "amount": "50g", "price": 24.2 },
-      { "name": "モナングレープ", "amount": "30ml", "price": 65.1 }
+    "mentai_mayo_pasta": [
+      { "name": "パスタ（1玉）", "amount": "1玉", "price": 109.3 },
+      { "name": "明太子（30ｇ）", "amount": "30g", "price": 74.6 },
+      { "name": "バター（5ｇ）", "amount": "5g", "price": 11.3 },
+      { "name": "マヨネーズ（15ｇ）", "amount": "15g", "price": 8.4 },
+      { "name": "きざみのり（1ｇ）", "amount": "1g", "price": 6.4 }
     ],
-    "lemon_soda_float": [
-      { "name": "アイスクリーム", "amount": "50g", "price": 24.2 },
-      { "name": "モナンレモン", "amount": "30ml", "price": 67.7 }
+    "meat_pasta": [
+      { "name": "パスタ（1玉）", "amount": "1玉", "price": 109.3 },
+      { "name": "ミートソース（100ｇ）", "amount": "100g", "price": 90.7 },
+      { "name": "パルメザンチーズ（3ｇ）", "amount": "3g", "price": 3.0 },
+      { "name": "パセリ（1ｇ）", "amount": "1g", "price": 8.5 }
     ],
-    "smoothie_matcha": [
-      { "name": "牛乳", "amount": "110ml", "price": 27.5 },
-      { "name": "抹茶", "amount": "30g", "price": 131.1 },
-      { "name": "ホイップクリーム", "amount": "5ml", "price": 14.0 }
-    ],
-    "cola_float": [
-      { "name": "アイスクリーム", "amount": "50g", "price": 24.2 },
-      { "name": "コーラ", "amount": "160ml", "price": 34.3 }
-    ],
-    "coffee_float": [
-      { "name": "アイスクリーム", "amount": "50g", "price": 24.2 },
-      { "name": "コーヒー", "amount": "160ml", "price": 28.16 }
-    ],
-    "premium_parfait": [
-      { "name": "グラノーラ", "amount": "30g", "price": 27.45 },
-      { "name": "アイスクリーム", "amount": "50g", "price": 24.2 },
-      { "name": "ホイップクリーム", "amount": "5ml", "price": 14.0 },
-      { "name": "モナンソース S", "amount": "10g", "price": 21.7 },
-      { "name": "シフォンケーキ", "amount": "15g", "price": 31.9 }
-    ],
-    "katsumeshi": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "とんかつ", "amount": "1枚", "price": 180.0 },
-      { "name": "デミグラスソース", "amount": "40g", "price": 31.0 }
-    ],
-    "granola": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "グラノーラ", "amount": "80g", "price": 73.2 },
-      { "name": "牛乳", "amount": "150ml", "price": 37.5 }
-    ],
-    "toast_set": [
-      { "name": "パン", "amount": "18枚切", "price": 36.0 },
-      { "name": "ベーコン", "amount": "1枚", "price": 40.4 },
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "たまご", "amount": "1個", "price": 30.0 }
-    ],
-    "menchikatsu_sand": [
-      { "name": "パン３６枚切り", "amount": "2枚", "price": 36.0 },
-      { "name": "メンチカツ", "amount": "1個", "price": 176.0 },
-      { "name": "シューストポテト", "amount": "50g", "price": 20.5 },
-      { "name": "レタス", "amount": "10g", "price": 5.0 },
-      { "name": "塩ミニパック", "amount": "-", "price": 1.9 },
-      { "name": "コンソメ", "amount": "5g", "price": 10.5 }
-    ],
-    "kakiage_sand": [
-      { "name": "パン３６枚切り", "amount": "2枚", "price": 36.0 },
-      { "name": "かきあげ", "amount": "1個", "price": 76.0 },
-      { "name": "シューストポテト", "amount": "50g", "price": 20.5 },
-      { "name": "レタス", "amount": "10g", "price": 5.0 },
-      { "name": "塩ミニパック", "amount": "-", "price": 1.9 },
-      { "name": "コンソメ", "amount": "5g", "price": 10.5 }
-    ],
-    "croquette_sand": [
-      { "name": "パン３６枚切り", "amount": "2枚", "price": 36.0 },
-      { "name": "コロッケ", "amount": "1個", "price": 104.0 },
-      { "name": "シューストポテト", "amount": "50g", "price": 20.5 },
-      { "name": "レタス", "amount": "10g", "price": 5.0 },
-      { "name": "塩ミニパック", "amount": "-", "price": 1.9 },
-      { "name": "コンソメ", "amount": "5g", "price": 10.5 }
-    ],
-    "steak_set": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "ステーキ", "amount": "-", "price": 480.0 },
-      { "name": "シャリアピンソース", "amount": "40g", "price": 25.0 },
-      { "name": "レモン", "amount": "1/8個", "price": 8.7 }
-    ],
-    "steak_hamburg_set": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "ハンバーグ", "amount": "1個", "price": 150.0 },
-      { "name": "シャリアピンソース", "amount": "80g", "price": 50.0 },
-      { "name": "レモン", "amount": "1/8個", "price": 8.7 },
-      { "name": "ステーキ", "amount": "-", "price": 480.0 }
-    ],
-    "hamburg_set": [
+    "rokomoko_plate": [
       { "name": "付け添えサラダ", "amount": "-", "price": 51.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "ハンバーグ", "amount": "1個", "price": 150.0 },
-      { "name": "唐揚げの素", "amount": "15g", "price": 9.2 },
-      { "name": "鶏肉", "amount": "2個", "price": 129.8 },
-      { "name": "デミグラスソース", "amount": "60g", "price": 46.2 }
-    ],
-    "shougayaki": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "豚肉", "amount": "100g", "price": 146.0 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 }
-    ],
-    "yakiniku_karbi": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "牛肉", "amount": "1袋", "price": 300.0 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 },
-      { "name": "焼肉のたれ", "amount": "40ml", "price": 26.8 }
-    ],
-    "shio_karbi": [
-      { "name": "付け添えサラダ", "amount": "-", "price": 53.0 },
-      { "name": "ご飯", "amount": "150g", "price": 94.5 },
-      { "name": "ビーフコンソメ", "amount": "5g", "price": 10.5 },
-      { "name": "牛肉", "amount": "1袋", "price": 300.0 },
-      { "name": "たまねぎ", "amount": "1/6個", "price": 10.8 },
-      { "name": "塩だれ", "amount": "40ml", "price": 42.6 }
-    ],
-    "salmon_pasta": [
-      { "name": "パスタ", "amount": "1玉", "price": 109.3 },
-      { "name": "鮭", "amount": "1個", "price": 132.0 },
-      { "name": "レモン", "amount": "2/8個", "price": 17.4 },
-      { "name": "白ワイン", "amount": "30ml", "price": 19.5 },
-      { "name": "コンソメ", "amount": "10g", "price": 21.0 },
-      { "name": "牛乳", "amount": "150ml", "price": 37.5 },
-      { "name": "オリーブオイル", "amount": "5ml", "price": 10.3 },
-      { "name": "パセリ", "amount": "1g", "price": 8.5 }
+      { "name": "ご飯（150ｇ）", "amount": "150g", "price": 94.5 },
+      { "name": "ビーフコンソメ（5ｇ）", "amount": "5g", "price": 10.5 },
+      { "name": "ハンバーグ（1個）", "amount": "1個", "price": 150.0 },
+      { "name": "たまご", "amount": "1個", "price": 30.0 },
+      { "name": "デミグラスソース（60ｇ）", "amount": "60g", "price": 46.2 }
     ]
   }
 }
